@@ -1,0 +1,49 @@
+.footer-form {
+    display: flex;
+    flex-direction: column;
+    width: 550px;
+
+    span {
+        font-size: 1rem;
+        font-weight: 700;
+    }
+
+    label {
+        position: relative;
+        display: none;
+    }
+
+    input {
+        width: 550px;
+        height: 56px;
+        background-color: #fff;
+        outline: none;
+        border: none;
+        margin: 0.5rem 0;
+        padding-left: 1rem;
+        transition: all 0.3s ease-out;
+        -webkit-transition: all 0.3s ease-out;
+        -moz-transition: all 0.3s ease-out;
+    }
+
+    textarea {
+        border: none;
+        padding-left: 1rem;
+        padding-top: 1rem;
+        outline: none;
+        margin-bottom: 0.5rem;
+        resize: none;
+        width: 550px;
+    }
+
+    button {
+        font-weight: 400;
+        border: none;
+        padding: 16px;
+        font-size: 16px;
+        color: #fff;
+        cursor: pointer;
+        background-color: #2a7ae4;
+        width: 165px;
+    }
+}

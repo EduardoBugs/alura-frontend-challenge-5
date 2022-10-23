@@ -1,0 +1,12 @@
+<div class="galeria-produtos">
+  <div class="galeria-header">
+    <h2>{{ galeria.titulo }}</h2>
+    <a href="#">Ver tudo <i>→</i></a>
+  </div>
+
+  <ul class="lista-produtos">
+    <li *ngFor="let produto of galeria.produtos">
+      <app-card-produto [produto]="produto"></app-card-produto>
+    </li>
+  </ul>
+</div>

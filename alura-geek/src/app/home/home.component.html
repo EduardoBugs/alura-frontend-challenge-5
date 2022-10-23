@@ -1,0 +1,12 @@
+<div class="home">
+  <app-banner
+    [title]="bannerTitle"
+    [description]="bannerDescription"
+    [buttonText]="buttonText"
+  ></app-banner>
+  <div class="produtos">
+    <ng-container *ngFor="let galeria of galerias">
+      <app-galeria [galeria]="galeria"></app-galeria>
+    </ng-container>
+  </div>
+</div>
