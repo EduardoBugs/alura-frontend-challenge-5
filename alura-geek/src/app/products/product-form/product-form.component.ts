@@ -30,7 +30,8 @@ export class ProductFormComponent implements OnInit {
 
   onSelect(event: { addedFiles: any; }) {
     console.log(event);
-    this.files.push(...event.addedFiles);
+    this.files=[...event.addedFiles];
+    //this.files.push(...event.addedFiles);
   }
   
   onRemove(event: File) {

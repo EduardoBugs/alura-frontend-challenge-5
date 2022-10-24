@@ -8,18 +8,22 @@ import { HeaderModule } from "./header/header.module";
 import { RequestInterceptor } from "./auth/request.interceptor";
 import { HeaderComponent } from "./header/header.component";
 import { FooterComponent } from "./footer/footer.component";
+import { SignupComponent } from './signup/signup.component';
+import { SignupModule } from "./signup/signup.module";
 
 @NgModule({ 
     declarations: [],
     exports: [
       HeaderComponent,
-      FooterComponent
+      FooterComponent,
+      SignupComponent
     ],
     imports: [
         CommonModule,
         RouterModule,
         HeaderModule,
-        FooterModule
+        FooterModule,
+        SignupModule
     ],
     providers: [
         {

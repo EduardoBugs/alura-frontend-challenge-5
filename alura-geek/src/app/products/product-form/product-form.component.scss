@@ -44,40 +44,50 @@
   }
 
   .image-select {
-    width: 559px;
     margin-bottom: 16px;
 
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
 
-    .drop-image {
-      width: 250px;
+    .custom-dropzone {
+      height: 403px;
+      width: 560px;
+      border: 2px dashed #A2A2A2;
+      border-radius: 20px;
+    }
+
+    .image-select-info {
+      align-items: center;
+      width: 100%;
+
+      .image-select-icon {
+        width: 100%;
+      }
 
       .image-select-text {
+        display: table;
+        margin: 0 auto;
+
         margin-top: 16px;
+        padding: 0px 10px;
         font-family: 'Raleway';
         font-style: normal;
         font-weight: 400;
-        font-size: 16px;
+        font-size: 14px;
         line-height: 16px;
-    
-        display: flex;
+
         align-items: center;
-    
+
         color: #A2A2A2;
       }
     }
 
-    .image-select-separator {
-      width: 59px;
-    }
-
-    .search-image {
-      width: 250px;
+    .image-select-preview {
+      height: 383px !important;
+      max-height: 383px;
     }
   }
-
 
   input:focus,
   textarea:focus {

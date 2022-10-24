@@ -3,23 +3,37 @@
     <h2 class="title">Adicionar novo produto</h2>
 
     <div class="image-select">
-      <div class="drop-image">
-        <ngx-dropzone (change)="onSelect($event)">
-          <ngx-dropzone-label
-            ><fa-icon [icon]="faImage" size="2x"></fa-icon><span class="image-select-text">Arraste para
-              adicionar uma imagem para o produto</span></ngx-dropzone-label
-          >
-          <ngx-dropzone-preview
-            *ngFor="let f of files"
-            [removable]="true"
-            (removed)="onRemove(f)"
-          >
-            <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
-          </ngx-dropzone-preview>
-        </ngx-dropzone>
+      <div
+        class="custom-dropzone"
+        ngx-dropzone
+        [accept]="'image/*'"
+        [multiple]="false"
+        (change)="onSelect($event)"
+      >
+        <ngx-dropzone-label>
+          <div class="image-select-info">
+            <span class="image-select-icon">
+              <fa-icon [icon]="faImage" size="2x"></fa-icon> </span
+            ><span class="image-select-text"
+              >Arraste para adicionar uma imagem para o produto</span
+            >
+            <span class="image-select-text">Ou</span>
+            <span class="image-select-text"
+              >Clique para procurar no seu computador</span
+            >
+          </div>
+        </ngx-dropzone-label>
+        <ngx-dropzone-image-preview
+          class="image-select-preview"
+          ngProjectAs="ngx-dropzone-preview"
+          *ngFor="let f of files"
+          [file]="f"
+          [removable]="true"
+          (removed)="onRemove(f)"
+        >
+          <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+        </ngx-dropzone-image-preview>
       </div>
-      <div class="image-select-separator">Ou</div>
-      <div class="search-image"></div>
     </div>
 
     <div class="input-field-box">

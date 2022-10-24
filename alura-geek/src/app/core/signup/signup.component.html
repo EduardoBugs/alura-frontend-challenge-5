@@ -1,0 +1,53 @@
+<main class="login">
+  <div class="login-wrapper">
+    <h3 class="login-title">Iniciar Sessão</h3>
+    <form class="login-form" [formGroup]="formSignup" (submit)="login()">
+      <input
+        autofocus
+        formControlName="email"
+        type="email"
+        placeholder="Escreva seu e-mail"
+        [ngClass]="{
+          error:
+            formControls['email'].invalid &&
+            (formControls['email'].dirty || formControls['email'].touched)
+        }"
+      />
+      <ng-container
+        *ngIf="
+          formControls['email'].invalid &&
+          (formControls['email'].dirty || formControls['email'].touched)
+        "
+      >
+        <span
+          *ngIf="formControls['email'].errors?.['required']"
+          class="input-error-message"
+          >Informe o e-mail</span
+        >
+        <span
+          *ngIf="formControls['email'].errors?.['email']"
+          class="input-error-message"
+          >E-mail inválido</span
+        >
+      </ng-container>
+      <input
+        formControlName="senha"
+        type="password"
+        placeholder="Escreva sua senha"
+      />
+      <ng-container
+        *ngIf="
+          formControls['senha'].invalid &&
+          (formControls['senha'].dirty || formControls['senha'].touched)
+        "
+      >
+        <span
+          *ngIf="formControls['senha'].errors?.['required']"
+          class="input-error-message"
+          >Informe a senha</span
+        >
+      </ng-container>
+      <button class="login-button" type="submit">Entrar</button>
+    </form>
+  </div>
+</main>

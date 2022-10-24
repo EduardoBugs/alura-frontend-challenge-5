@@ -1,0 +1,7 @@
+<ng-container *ngIf="!isLogged">
+  <button class="header-button" (click)="login()">Login</button>
+</ng-container>
+<ng-container *ngIf="isLogged">
+  <button class="header-button-admin" (click)="adminPage()">Menu Administrador</button>
+  <button class="header-button" (click)="logout()">Logout</button>
+</ng-container>
