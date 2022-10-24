@@ -17,6 +17,6 @@ export class CategoriaComponent implements OnInit {
   constructor(private produtoService: ProdutoService) {}
 
   ngOnInit(): void {
-    this.produtos$ = this.produtoService.listByCategory(this.categoria.id);
+    this.produtos$ = this.produtoService.listByCategory(this.categoria.name);
   }
 }

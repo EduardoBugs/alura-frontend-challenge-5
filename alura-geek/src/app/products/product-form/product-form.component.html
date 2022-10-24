@@ -1,5 +1,9 @@
 <main class="add-product">
-  <form class="product-form" [formGroup]="productForm" (submit)="upload()">
+  <form
+    class="product-form"
+    [formGroup]="productForm"
+    (submit)="adicionarProduto()"
+  >
     <h2 class="title">Adicionar novo produto</h2>
 
     <div class="image-select">
@@ -34,6 +38,9 @@
           <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
         </ngx-dropzone-image-preview>
       </div>
+      <ng-container *ngIf="isMissingFile">
+        <span class="input-error-message">Selecione a imagem do produto</span>
+      </ng-container>
     </div>
 
     <div class="input-field-box">
@@ -46,6 +53,18 @@
           maxlength="20"
         />
       </div>
+      <ng-container
+        *ngIf="
+          formControls['name'].invalid &&
+          (formControls['name'].dirty || formControls['name'].touched)
+        "
+      >
+        <span
+          *ngIf="formControls['name'].errors?.['required']"
+          class="input-error-message"
+          >Informe o nome do produto</span
+        >
+      </ng-container>
     </div>
 
     <div class="input-field-box">
@@ -58,13 +77,37 @@
           maxlength="20"
         />
       </div>
+      <ng-container
+        *ngIf="
+          formControls['categoria'].invalid &&
+          (formControls['categoria'].dirty || formControls['categoria'].touched)
+        "
+      >
+        <span
+          *ngIf="formControls['categoria'].errors?.['required']"
+          class="input-error-message"
+          >Informe a categoria do produto</span
+        >
+      </ng-container>
     </div>
 
     <div class="input-field-box">
       <div class="input-field-content">
         <label class="input-label" for="price">Preço do produto</label>
-        <input class="input-text" type="text" formControlName="price" />
+        <input currencyMask maxlength="8" class="input-text" type="text" formControlName="price" />
       </div>
+      <ng-container
+        *ngIf="
+          formControls['price'].invalid &&
+          (formControls['price'].dirty || formControls['price'].touched)
+        "
+      >
+        <span
+          *ngIf="formControls['price'].errors?.['required']"
+          class="input-error-message"
+          >Informe o preço do produto</span
+        >
+      </ng-container>
     </div>
 
     <div class="text-field-box">
@@ -78,6 +121,18 @@
           maxlength="150"
         ></textarea>
       </div>
+      <ng-container
+        *ngIf="
+          formControls['price'].invalid &&
+          (formControls['price'].dirty || formControls['price'].touched)
+        "
+      >
+        <span
+          *ngIf="formControls['price'].errors?.['required']"
+          class="input-error-message"
+          >Informe a descrição do produto</span
+        >
+      </ng-container>
     </div>
 
     <button class="btn-adicionar" type="submit">Adicionar produto</button>

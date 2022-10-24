@@ -3,8 +3,8 @@ const productConverter = (row) => ({
   name: row.product_name,
   description: row.product_description,
   price: row.product_price,
-  imgUrl: row.product_img_url,
-  categoryId: row.category_id,
+  img: row.product_img,
+  category: row.product_category,
   userId: row.user_id
 });
 
@@ -41,24 +41,28 @@ class ProductDao {
     });
   }
 
-  listByCategory(categoryId, limit) {
+  listByCategory(category, limit) {
     return new Promise((resolve, reject) => {
         this._db.all(`
             SELECT *
             FROM product
-            WHERE category_id = ?
-            ORDER BY product_id
+            WHERE product_category = ?
+            ORDER BY RANDOM()
             LIMIT ${limit} ;
             `,
-            [categoryId],
+            [category],
             (err, rows) => {
-                const products = rows.map(productConverter)
                 if (err) {
                     console.log(err);
                     return reject('Can`t list products');
                 }
-                console.log('produtos retornados');
-                resolve(products);
+                if (rows) {
+                  const products = rows.map(productConverter);
+                  console.log('produtos retornados');
+                  return resolve(products);
+                } else {
+                  return resolve(null);
+                }
             });
     });
   }
@@ -71,8 +75,8 @@ class ProductDao {
                 product_name,
                 product_description,
                 product_price,
-                product_img_url,
-                category_id,
+                product_img,
+                product_category,
                 user_id
             ) values (?,?,?,?,?,?,?)
         `,
@@ -81,8 +85,8 @@ class ProductDao {
                 product.name,
                 product.description,
                 product.price,
-                product.imgUrl,
-                product.categoryId,
+                product.img,
+                product.category,
                 user_id
             ],
             function (err) {

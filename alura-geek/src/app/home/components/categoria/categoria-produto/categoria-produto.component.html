@@ -1,6 +1,6 @@
 <div class="categoria-produto">
-  <img class="produto-img" src="{{ produto.imgUrl }}" alt="" />
+  <img class="produto-img" src="{{ produto.img }}" alt="" />
   <p class="produto-description">{{ produto.name }}</p>
-  <span class="produto-valor">{{ produto.price }}</span>
-  <a class="produto-link" href="./produtos.html">Ver produto</a>
+  <span class="produto-valor">{{ precoProduto | currency}}</span>
+  <a class="produto-link" href="javascript: void(0);" (click)="detalhesProduto()">Ver produto</a>
 </div>

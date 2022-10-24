@@ -45,8 +45,6 @@
 
   .image-select {
     margin-bottom: 16px;
-
-    display: flex;
     flex-direction: row;
     justify-content: space-evenly;
 
@@ -198,5 +196,12 @@
       }
     }
   }
+}
 
+.input-error-message {
+  font-size: .75rem;
+  color: #f36b6b;
+  text-align: right;
+  width: 100%;
+  margin-bottom: -12px;
 }

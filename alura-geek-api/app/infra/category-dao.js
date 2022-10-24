@@ -1,6 +1,5 @@
 const categoryConverter = (row) => ({
-  id: row.category_id,
-  name: row.category_name,
+  name: row.product_category
 });
 
 class CategoryDao {
@@ -11,15 +10,21 @@ class CategoryDao {
   listAll() {
     return new Promise((resolve, reject) => {
       this._db.all(
-        `SELECT * FROM category ORDER BY category_id;`,
+        `SELECT DISTINCT product_category
+        FROM product
+        ORDER BY product_category;`,
         (err, rows) => {
-          const categories = rows.map(categoryConverter);
           if (err) {
             console.log(err);
             return reject("Can`t list categories");
           }
-          console.log("categorias retornadas");
-          resolve(categories);
+          if (rows) {
+            const categories = rows.map(categoryConverter);
+            console.log("categorias retornadas");
+            resolve(categories);
+          } else {
+            resolve(null);
+          }
         }
       );
     });

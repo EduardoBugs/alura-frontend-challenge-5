@@ -8,6 +8,8 @@ const api = {}
 
 const userCanEditDelete = user => product => product.userId == user.id;
 
+const defaultExtension = '.jpg';
+
 api.list = async (req, res) => {
   console.log('####################################');
   const { page } = req.query;
@@ -15,6 +17,16 @@ api.list = async (req, res) => {
   console.log(`Listing produtcs`);
   const products = await new ProductDao(req.db)
       .listAll(page);
+  
+      res.json(products);
+}
+
+api.listCategories = async (req, res) => {
+  console.log('####################################');
+  
+  console.log(`Listing categories`);
+  const products = await new ProductDao(req.db)
+      .listCategories();
   
       res.json(products);
 }
@@ -36,6 +48,7 @@ api.add = async (req, res) => {
   console.log('Received JSON data', req.body);
 
   const product = req.body;
+  product.file = '';
 
   const id = await new ProductDao(req.db).add(product, req.user.id);
   res.json(id);
@@ -49,14 +62,16 @@ api.addUpload = async (req, res) => {
   const image = await jimp.read(req.file.path);
 
   await image
-      .exifRotate()
+      .rotate(0)
       .cover(460, 460)
       .autocrop()
-      .write(req.file.path);  
-          
+      .write(req.file.path);
+
   const product = req.body;
-  product.imgUrl = path.basename(req.file.path);
+  product.img = await image.getBase64Async(jimp.AUTO);
+
   await new ProductDao(req.db).add(product, req.user.id);
+  
   res.status(200).end();       
 };
 
