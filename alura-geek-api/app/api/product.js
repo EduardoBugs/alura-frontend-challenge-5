@@ -12,7 +12,7 @@ api.list = async (req, res) => {
   console.log('####################################');
   const { page } = req.query;
   
-  console.log(`Listing photos`);
+  console.log(`Listing produtcs`);
   const products = await new ProductDao(req.db)
       .listAll(page);
   
@@ -21,14 +21,14 @@ api.list = async (req, res) => {
 
 api.listByCategory = async (req, res) => {
   console.log('####################################');
-  const { categoryId } = req.query;
+  const { categoryId } = req.params;
   const { limit } = req.query;
   
-  console.log(`Listing photos`);
+  console.log(`Listing produtcs`);
   const products = await new ProductDao(req.db)
       .listByCategory(categoryId, limit);
-  
-      res.json(products);
+
+  res.json(products);
 }
 
 api.add = async (req, res) => {

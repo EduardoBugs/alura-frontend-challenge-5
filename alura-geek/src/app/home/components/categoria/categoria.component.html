@@ -1,0 +1,11 @@
+<div class="categoria-content">
+  <div class="categoria-header">
+    <h2>{{ categoria.name }}</h2>
+    <a href="./produtos-home.html">Ver tudo<i>→</i></a>
+  </div>
+  <ul class="categoria-produtos">
+    <li *ngFor="let produto of produtos$ | async">
+      <app-categoria-produto [produto]="produto"></app-categoria-produto>
+    </li>
+  </ul>
+</div>

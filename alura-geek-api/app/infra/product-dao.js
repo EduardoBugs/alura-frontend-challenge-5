@@ -44,10 +44,10 @@ class ProductDao {
   listByCategory(categoryId, limit) {
     return new Promise((resolve, reject) => {
         this._db.all(`
-            SELECT p.*,
-            FROM product AS p
-            WHERE p.category_id = ?
-            ORDER BY p.product_id
+            SELECT *
+            FROM product
+            WHERE category_id = ?
+            ORDER BY product_id
             LIMIT ${limit} ;
             `,
             [categoryId],

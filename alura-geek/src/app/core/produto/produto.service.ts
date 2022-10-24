@@ -16,6 +16,7 @@ export class ProdutoService {
   }
 
   listByCategory(idCategoria: number) {
-    return this.http.get<Produto[]>(API + '/categorias/' + idCategoria);
+    const params = new HttpParams().append('limit', "6");
+    return this.http.get<Produto[]>(API + '/categorias/' + idCategoria, { params });
   }
 }

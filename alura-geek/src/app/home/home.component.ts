@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Galeria } from '@types';
+import { Observable } from 'rxjs';
+import { Categoria } from '../core/categoria/categoria.interface';
 import { CategoriaService } from '../core/categoria/categoria.service';
 
 @Component({
@@ -10,12 +12,12 @@ import { CategoriaService } from '../core/categoria/categoria.service';
 export class HomeComponent implements OnInit {
   galerias: Galeria[] = [];
 
+  categorias$: Observable<Categoria[]>|null = null;
+
   constructor(private categoriaService: CategoriaService) {}
 
   ngOnInit(): void {
-    this.categoriaService.list().subscribe(categorias => {
-      console.log(categorias);
-    })
+    this.categorias$ = this.categoriaService.list();
   }
 
   get bannerTitle(): string {

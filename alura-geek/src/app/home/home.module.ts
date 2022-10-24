@@ -1,19 +1,19 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { HomeComponent } from './home.component';
-import { GaleriaComponent } from './components/galeria/galeria.component';
 import { BannerComponent } from './components/banner/banner.component';
-import { CardProdutoModule } from 'src/app/shared/components/card-produto/card-produto.module';
+import { CategoriaModule } from './components/categoria/categoria.module';
+import { HomeRoutingModule } from './home.routing.module';
 
 @NgModule({
     declarations: [
         HomeComponent,
-        BannerComponent,
-        GaleriaComponent
+        BannerComponent
     ],
     imports: [
         CommonModule,
-        CardProdutoModule
+        CategoriaModule,
+        HomeRoutingModule
     ],
     exports: [HomeComponent]
 })

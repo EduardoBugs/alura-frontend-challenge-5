@@ -1,0 +1,71 @@
+<main class="add-product">
+  <form class="product-form" [formGroup]="productForm" (submit)="upload()">
+    <h2 class="title">Adicionar novo produto</h2>
+
+    <div class="image-select">
+      <div class="drop-image">
+        <ngx-dropzone (change)="onSelect($event)">
+          <ngx-dropzone-label
+            ><fa-icon [icon]="faImage" size="2x"></fa-icon><span class="image-select-text">Arraste para
+              adicionar uma imagem para o produto</span></ngx-dropzone-label
+          >
+          <ngx-dropzone-preview
+            *ngFor="let f of files"
+            [removable]="true"
+            (removed)="onRemove(f)"
+          >
+            <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+          </ngx-dropzone-preview>
+        </ngx-dropzone>
+      </div>
+      <div class="image-select-separator">Ou</div>
+      <div class="search-image"></div>
+    </div>
+
+    <div class="input-field-box">
+      <div class="input-field-content">
+        <label class="input-label" for="name">Nome do produto</label>
+        <input
+          class="input-text"
+          type="text"
+          formControlName="name"
+          maxlength="20"
+        />
+      </div>
+    </div>
+
+    <div class="input-field-box">
+      <div class="input-field-content">
+        <label class="input-label" for="categoria">Categoria do produto</label>
+        <input
+          class="input-text"
+          type="text"
+          formControlName="categoria"
+          maxlength="20"
+        />
+      </div>
+    </div>
+
+    <div class="input-field-box">
+      <div class="input-field-content">
+        <label class="input-label" for="price">Preço do produto</label>
+        <input class="input-text" type="text" formControlName="price" />
+      </div>
+    </div>
+
+    <div class="text-field-box">
+      <div class="text-field-content">
+        <label class="input-label" for="description"
+          >Descrição do produto</label
+        >
+        <textarea
+          class="text-area"
+          formControlName="description"
+          maxlength="150"
+        ></textarea>
+      </div>
+    </div>
+
+    <button class="btn-adicionar" type="submit">Adicionar produto</button>
+  </form>
+</main>

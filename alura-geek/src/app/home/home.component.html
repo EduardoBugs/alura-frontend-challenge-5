@@ -1,12 +1,14 @@
-<div class="home">
-  <app-banner
-    [title]="bannerTitle"
-    [description]="bannerDescription"
-    [buttonText]="buttonText"
-  ></app-banner>
-  <div class="produtos">
-    <ng-container *ngFor="let galeria of galerias">
-      <app-galeria [galeria]="galeria"></app-galeria>
+<main class="home">
+  <section>
+    <app-banner
+      [title]="bannerTitle"
+      [description]="bannerDescription"
+      [buttonText]="buttonText"
+    ></app-banner>
+  </section>
+  <section class="produtos">
+    <ng-container *ngFor="let categoria of categorias$ | async">
+      <app-categoria [categoria]="categoria"></app-categoria>
     </ng-container>
-  </div>
-</div>
+  </section>
+</main>

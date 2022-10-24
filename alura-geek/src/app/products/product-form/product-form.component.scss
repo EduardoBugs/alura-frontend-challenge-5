@@ -1,0 +1,192 @@
+.add-product {
+  background-color: #f5f5f5;
+
+  padding-bottom: 64px;
+}
+
+.btn-adicionar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  gap: 10px;
+
+  width: 559px;
+  height: 51px;
+
+  flex: none;
+  order: 6;
+  align-self: stretch;
+  flex-grow: 0;
+
+  font-weight: 400;
+  border: none;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+  background-color: #2a7ae4;
+}
+
+.product-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin: 0 auto;
+  max-width: 560px;
+
+  .title {
+    margin: 0;
+    font-size: 1.6rem;
+    margin-bottom: 1.2rem;
+    margin-top: 64px;
+    font-weight: 700;
+  }
+
+  .image-select {
+    width: 559px;
+    margin-bottom: 16px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    .drop-image {
+      width: 250px;
+
+      .image-select-text {
+        margin-top: 16px;
+        font-family: 'Raleway';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 16px;
+    
+        display: flex;
+        align-items: center;
+    
+        color: #A2A2A2;
+      }
+    }
+
+    .image-select-separator {
+      width: 59px;
+    }
+
+    .search-image {
+      width: 250px;
+    }
+  }
+
+
+  input:focus,
+  textarea:focus {
+    outline: none;
+  }
+
+  .input-label {
+    width: 535px;
+    height: 16px;
+
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+
+    display: flex;
+    align-items: center;
+
+    color: #A2A2A2;
+
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+  }
+
+  .input-field-box {
+    width: 559px;
+    height: 56px;
+
+    background: #FFFFFF;
+    border-radius: 4px;
+
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+
+    border-bottom: 1px solid #c8c8c8;
+
+    margin-bottom: 16px;
+
+    .input-field-content {
+      padding: 8px 12px;
+      height: 40px;
+
+      .input-text {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0px;
+        gap: 4px;
+
+        width: 535px;
+        height: 20px;
+
+        flex: none;
+        order: 1;
+        align-self: stretch;
+        flex-grow: 0;
+
+        border: none;
+      }
+
+    }
+
+  }
+
+  .text-field-box {
+    width: 559px;
+    height: 86px;
+
+    background: #FFFFFF;
+    border-radius: 4px;
+
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+
+    border-bottom: 1px solid #c8c8c8;
+
+    margin-bottom: 16px;
+
+    .text-field-content {
+      padding: 8px 12px;
+      height: 70px;
+
+      .text-area {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0px;
+        gap: 4px;
+
+        width: 535px;
+        height: 60px;
+
+        flex: none;
+        order: 1;
+        align-self: stretch;
+        flex-grow: 0;
+
+        border: none;
+
+        resize: none;
+      }
+    }
+  }
+
+}
