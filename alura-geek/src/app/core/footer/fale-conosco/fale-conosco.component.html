@@ -1,13 +1,51 @@
 <div class="footer-form">
   <span>Fale conosco</span>
-  <input type="text" name="name" id="name" placeholder="Nome" required="" />
-  <label for="name"></label>
-  <textarea
-    name="mensagem"
-    id="mensagem"
-    cols="30"
-    rows="4"
-    placeholder="Escreva sua mensagem"
-  ></textarea>
-  <button type="submit">Enviar mensagem</button>
+  <form [formGroup]="formFaleConosco" (submit)="enviarMensagem()">
+    <div class="input-nome">
+      <input
+        type="text"
+        formControlName="name"
+        placeholder="Nome"
+        maxlength="40"
+      />
+      <ng-container
+        *ngIf="
+          formControls['name'].invalid &&
+          (formControls['name'].dirty || formControls['name'].touched)
+        "
+      >
+        <span
+          *ngIf="formControls['name'].errors?.['required']"
+          class="input-error-message"
+          >Informe seu nome</span
+        >
+      </ng-container>
+    </div>
+
+    <div class="input-message">
+      <textarea
+        formControlName="mensagem"
+        cols="30"
+        rows="4"
+        maxlength="120"
+        placeholder="Escreva sua mensagem"
+      ></textarea>
+      <ng-container
+        *ngIf="
+          formControls['mensagem'].invalid &&
+          (formControls['mensagem'].dirty || formControls['mensagem'].touched)
+        "
+      >
+        <span
+          *ngIf="formControls['mensagem'].errors?.['required']"
+          class="input-error-message"
+          >Digite sua mensagem</span
+        >
+      </ng-container>
+    </div>
+
+    <div>
+      <button type="submit">Enviar mensagem</button>
+    </div>
+  </form>
 </div>
