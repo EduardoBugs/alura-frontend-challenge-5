@@ -1,17 +1,18 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { HeaderComponent } from './header.component';
-import { SearchBarComponent } from './search-bar/search-bar.component';
+
 import { BtnActionComponent } from './btn-action/btn-action.component';
+import { HeaderComponent } from './header.component';
+import { SearchBarModule } from './search-bar/search-bar.module';
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    SearchBarComponent,
     BtnActionComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    SearchBarModule
   ],
   exports: [HeaderComponent]
 })
