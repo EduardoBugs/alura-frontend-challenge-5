@@ -10,6 +10,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CardProdutoModule } from '../shared/components/card-produto/card-produto.module';
 import { CategoriaModule } from '../shared/components/categoria/categoria.module';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { ProductEditComponent } from './product-edit/product-edit.component';
 import { ProductFormComponent } from './product-form/product-form.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductsRoutingModule } from './products.routing.module';
@@ -34,17 +35,18 @@ import { ProductsRoutingModule } from './products.routing.module';
       suffix: '',
       thousands: '.',
       nullable: true,
-    }),
+    })
   ],
   declarations: [
     ProductFormComponent,
     ProductListComponent,
     ProductDetailsComponent,
+    ProductEditComponent
   ],
   exports: [
     ProductFormComponent,
     ProductListComponent,
-    ProductDetailsComponent,
+    ProductDetailsComponent
   ],
 })
 export class ProductsModule {}

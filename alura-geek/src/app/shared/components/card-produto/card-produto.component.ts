@@ -1,17 +1,28 @@
 import { Produto } from 'src/app/core/produto/produto.interface';
+import { ProdutoService } from 'src/app/core/produto/produto.service';
+import { UserService } from 'src/app/core/user/user.service';
 
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-card-produto',
   templateUrl: './card-produto.component.html',
-  styleUrls: ['./card-produto.component.scss']
+  styleUrls: ['./card-produto.component.scss'],
 })
 export class CardProdutoComponent {
   @Input() produto!: Produto;
+  @Output() excluir: EventEmitter<Produto> = new EventEmitter();
 
-  constructor(private router: Router) { }
+  faPen = faPen;
+  faTrash = faTrash;
+
+  constructor(
+    private router: Router,
+    private userService: UserService,
+    private produtoService: ProdutoService
+  ) {}
 
   get precoProduto() {
     if (!Number.isNaN(this.produto.price)) {
@@ -21,8 +32,23 @@ export class CardProdutoComponent {
     }
   }
 
+  get isLogged() {
+    return this.userService.isLogged();
+  }
+
   detalhesProduto() {
     this.router.navigate(['products', this.produto.id]);
   }
 
+  editarProduto() {
+    this.router.navigate(['products', this.produto.id, 'edit']);
+  }
+
+  excluirProduto() {
+    if (this.produto.id) {
+      this.produtoService
+        .excluirProduto(this.produto.id)
+        .subscribe(() => this.excluir.emit(this.produto));
+    }
+  }
 }

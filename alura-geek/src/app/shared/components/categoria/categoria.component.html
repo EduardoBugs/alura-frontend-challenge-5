@@ -5,7 +5,7 @@
   </div>
   <ul class="categoria-produtos">
     <li *ngFor="let produto of produtos$ | async">
-      <app-card-produto [produto]="produto"></app-card-produto>
+      <app-card-produto [produto]="produto" (excluir)="onExcluir()"></app-card-produto>
     </li>
   </ul>
 </div>

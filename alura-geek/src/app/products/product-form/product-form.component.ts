@@ -1,8 +1,9 @@
+import { ToastrService } from 'ngx-toastr';
+import { ProdutoService } from 'src/app/core/produto/produto.service';
+
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { faImage } from '@fortawesome/free-solid-svg-icons';
-import { ToastrService } from 'ngx-toastr';
-import { ProdutoService } from 'src/app/core/produto/produto.service';
 
 @Component({
   selector: 'app-product-form',
@@ -67,20 +68,6 @@ export class ProductFormComponent implements OnInit {
       this.productForm.markAllAsTouched();
     }
   }
-
-  // (event: HttpEvent<any>) => {
-  //   if (event.type == HttpEventType.UploadProgress) {
-  //     this.percentDone = Math.round(
-  //       (100 * event.loaded) / event.total
-  //     );
-  //   } else if (event instanceof HttpResponse) {
-  //     this.alertService.success('Upload complete', true);
-  //   }
-  // },
-  // (err) => {
-  //   console.log(err);
-  //   //this.alertService.danger('Upload Error!', true);
-  // }
 
   onSelect(event: { addedFiles: any }) {
     if (this.files && this.files.length >= 2) {

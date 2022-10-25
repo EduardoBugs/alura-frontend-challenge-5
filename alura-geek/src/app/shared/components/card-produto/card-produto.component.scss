@@ -2,9 +2,30 @@
   display: flex;
   flex-direction: column;
 
-  .produto-img {
-    width: 176px;
-    height: 174px;
+  .produto-img-actions {
+    position: relative;
+
+    .produto-img {
+      width: 176px;
+      height: 174px;
+      display: block;
+    }
+
+    .edit-icon {
+      position: absolute;
+      top: 11px;
+      left: 147px;
+      color: lightgray;
+      cursor: pointer;
+    }
+
+    .delete-icon {
+      position: absolute;
+      top: 11px;
+      left: 109px;
+      color: lightgray;
+      cursor: pointer;
+    }
   }
 
   .produto-description {

@@ -47,4 +47,27 @@ export class ProdutoService {
       reportProgress: true,
     });
   }
+
+  updateProduct(
+    idProduto: number,
+    name: string,
+    category: string,
+    price: string,
+    description: string
+  ) {
+    const formData = new FormData();
+
+    console.log(name, category, price, description);
+
+    formData.append('name', name);
+    formData.append('category', category);
+    formData.append('price', price);
+    formData.append('description', description);
+
+    return this.http.post(API + '/produtos/' + idProduto, formData);
+  }
+
+  excluirProduto(idProduto: number) {
+    return this.http.delete<any>(API + '/produtos/' + idProduto);
+  }
 }

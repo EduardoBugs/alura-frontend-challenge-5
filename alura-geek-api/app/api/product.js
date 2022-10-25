@@ -115,8 +115,13 @@ api.remove = async (req, res) => {
 };
 
 api.update = async (req, res) => {
+  console.log('####################################');
+  console.log('Received JSON data', req.body);
+
+  const newproduct = req.body;
   const user = req.user;
   const { productId } = req.params;
+
   const dao = new ProductDao(req.db);
   const product = await dao.findById(productId);
 
@@ -127,7 +132,7 @@ api.update = async (req, res) => {
   }
   
   if(userCanEditDelete(user)(product)) {
-      await dao.update(productId)
+      await dao.update(newproduct, user.id)
       console.log(`Product ${productId} updated!`);
       res.status(200).end();
 

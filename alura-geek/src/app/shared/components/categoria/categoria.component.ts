@@ -1,4 +1,4 @@
-import { map, Observable } from 'rxjs';
+import { map, Observable, tap } from 'rxjs';
 import { Produto } from 'src/app/core/produto/produto.interface';
 import { ProdutoService } from 'src/app/core/produto/produto.service';
 
@@ -21,6 +21,10 @@ export class CategoriaComponent implements OnInit {
   constructor(private produtoService: ProdutoService, private router: Router) {}
 
   ngOnInit(): void {
+    this.consultaProdutos();
+  }
+
+  private consultaProdutos() {
     if (this.nomeCategoria) {
       this.produtos$ = this.produtoService
         .listByCategory(this.nomeCategoria)
@@ -32,5 +36,9 @@ export class CategoriaComponent implements OnInit {
 
   redirectAllProducts() {
     this.router.navigate(['products']);
+  }
+
+  onExcluir() {
+    this.consultaProdutos();
   }
 }

@@ -10,7 +10,7 @@ module.exports = app => {
         .post(auth, app.get('upload').single('imageFile'), wrapAsync(productAPI.addUpload))        
 
     app.route('/produtos/:productId')
-        .post(auth, wrapAsync(productAPI.add))
+        .post(auth, wrapAsync(productAPI.update))
         .delete(auth, wrapAsync(productAPI.remove))
         .get(wrapAsync(productAPI.findById));
      

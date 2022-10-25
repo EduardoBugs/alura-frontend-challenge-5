@@ -1,5 +1,9 @@
 <div class="categoria-produto">
-  <img class="produto-img" src="{{ produto.img }}" alt="" />
+  <div class="produto-img-actions">
+    <img class="produto-img" src="{{ produto.img }}" alt="" />
+    <fa-icon *ngIf="isLogged" class="edit-icon" [icon]="faPen" (click)="editarProduto()"></fa-icon>
+    <fa-icon *ngIf="isLogged" class="delete-icon" [icon]="faTrash" (click)="excluirProduto()"></fa-icon>
+  </div>
   <p class="produto-description">{{ produto.name }}</p>
   <span class="produto-valor">{{ precoProduto | currency}}</span>
   <a class="produto-link" href="javascript: void(0);" (click)="detalhesProduto()">Ver produto</a>

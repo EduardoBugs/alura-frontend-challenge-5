@@ -92,22 +92,21 @@ class ProductDao {
     });
   }
 
-  update(product) {
+  update(product, user_id) {
+    console.log(product);
     return new Promise((resolve, reject) => {
         this._db.run(`
             UPDATE product
             SET product_name = ?,
                 product_description = ?,
                 product_price = ?,
-                product_img_url = ?,
-                category_id = ?
+                product_category = ?
             WHERE product_id = ?
         `,
             [
                 product.name,
                 product.description,
                 product.price,
-                product.imgUrl,
                 product.categoryId,
                 user_id
             ],
