@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Galeria } from '@types';
 import { Observable } from 'rxjs';
+
+import { Component, OnInit } from '@angular/core';
+
 import { Categoria } from '../core/categoria/categoria.interface';
 import { CategoriaService } from '../core/categoria/categoria.service';
 
@@ -10,8 +11,6 @@ import { CategoriaService } from '../core/categoria/categoria.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  galerias: Galeria[] = [];
-
   categorias$: Observable<Categoria[]>|null = null;
 
   constructor(private categoriaService: CategoriaService) {}

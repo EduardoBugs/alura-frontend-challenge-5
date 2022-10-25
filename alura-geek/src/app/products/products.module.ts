@@ -1,14 +1,17 @@
+import { NgxCurrencyModule } from 'ngx-currency';
+import { NgxDropzoneModule } from 'ngx-dropzone';
+import { ToastrModule } from 'ngx-toastr';
+
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+import { CategoriaModule } from '../shared/components/categoria/categoria.module';
+import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ProductFormComponent } from './product-form/product-form.component';
 import { ProductListComponent } from './product-list/product-list.component';
-import { ProductDetailsComponent } from './product-details/product-details.component';
-import { CommonModule } from '@angular/common';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { NgxDropzoneModule } from 'ngx-dropzone';
-import { ReactiveFormsModule } from '@angular/forms';
 import { ProductsRoutingModule } from './products.routing.module';
-import { NgxCurrencyModule } from 'ngx-currency';
-import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   imports: [
@@ -18,6 +21,7 @@ import { ToastrModule } from 'ngx-toastr';
     NgxDropzoneModule,
     FontAwesomeModule,
     ToastrModule.forRoot(),
+    CategoriaModule,
     NgxCurrencyModule.forRoot({
       align: 'left',
       allowNegative: true,

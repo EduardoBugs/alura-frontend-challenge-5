@@ -1,8 +1,9 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
-
 import { environment } from 'src/environments/environment';
-import { Produto, UploadProduto } from './produto.interface';
+
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+
+import { Produto } from './produto.interface';
 
 const API = environment.apiUrl;
 
@@ -21,6 +22,10 @@ export class ProdutoService {
       params,
     });
   }
+
+  findById(idProduto: number) {
+    return this.http.get<Produto>(API + '/produtos/' + idProduto);
+  }  
 
   addProduct(name: string, category: string, price: string, description: string, file: File) {
     const formData = new FormData();

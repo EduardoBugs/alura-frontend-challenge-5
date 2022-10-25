@@ -23,7 +23,7 @@
       "dom"
     ],
     "paths": {
-        "@types": ["src/app/core/types"]
+        "@shared": ["src/app/shared/components"]
     }
   },
   "angularCompilerOptions": {

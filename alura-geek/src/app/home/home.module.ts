@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+
+import { CategoriaModule } from '../shared/components/categoria/categoria.module';
+import { BannerComponent } from './banner/banner.component';
 import { HomeComponent } from './home.component';
-import { BannerComponent } from './components/banner/banner.component';
-import { CategoriaModule } from './components/categoria/categoria.module';
 import { HomeRoutingModule } from './home.routing.module';
 
 @NgModule({

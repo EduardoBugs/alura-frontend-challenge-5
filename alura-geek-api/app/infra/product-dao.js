@@ -130,9 +130,7 @@ class ProductDao {
 
   findById(id) {
     return new Promise((resolve, reject) => this._db.get(`
-        SELECT  p.*, 
-        FROM product AS p
-        WHERE p.product_id = ?;
+        SELECT * FROM product WHERE product_id = ?;
         `,
         [id],
         (err, row) => {

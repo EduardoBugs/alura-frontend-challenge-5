@@ -4,10 +4,6 @@ export interface Produto {
   description?: string;
   price?: number;
   img?: string;
-  category?: number;
+  category?: string;
   userId?: number;
-}
-
-export interface UploadProduto extends Produto {
-  imageFile: File;
 }

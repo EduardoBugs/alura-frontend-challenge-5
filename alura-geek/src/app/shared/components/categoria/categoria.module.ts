@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { CardProdutoModule } from 'src/app/shared/components/card-produto/card-produto.module';
 import { CategoriaProdutoComponent } from './categoria-produto/categoria-produto.component';
 import { CategoriaComponent } from './categoria.component';
 import { NgxCurrencyModule } from 'ngx-currency';
@@ -12,7 +11,6 @@ import { NgxCurrencyModule } from 'ngx-currency';
     ],
     imports: [
         CommonModule,
-        CardProdutoModule,
         NgxCurrencyModule.forRoot({
           align: 'left',
           allowNegative: true,

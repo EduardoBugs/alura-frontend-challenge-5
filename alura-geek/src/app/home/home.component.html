@@ -8,7 +8,10 @@
   </section>
   <section class="produtos">
     <ng-container *ngFor="let categoria of categorias$ | async">
-      <app-categoria [categoria]="categoria"></app-categoria>
+      <app-categoria
+        [nomeCategoria]="categoria.name"
+        [title]="categoria.name"
+      ></app-categoria>
     </ng-container>
   </section>
 </main>
