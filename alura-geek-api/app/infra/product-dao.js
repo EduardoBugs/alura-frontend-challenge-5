@@ -93,7 +93,6 @@ class ProductDao {
   }
 
   update(product, user_id) {
-    console.log(product);
     return new Promise((resolve, reject) => {
         this._db.run(`
             UPDATE product
@@ -107,7 +106,7 @@ class ProductDao {
                 product.name,
                 product.description,
                 product.price,
-                product.categoryId,
+                product.category,
                 user_id
             ],
             function (err) {

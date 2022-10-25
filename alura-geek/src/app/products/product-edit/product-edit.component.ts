@@ -42,11 +42,12 @@ export class ProductEditComponent implements OnInit {
       switchMap((idProduto: number) => {
         return this.produtoService.findById(idProduto).pipe(
           tap((produto) => {
+            const price: number = produto.price ? produto.price / 100 : 0;
             this.formControls['id'].setValue(produto.id);
             this.formControls['name'].setValue(produto.name);
             this.formControls['categoria'].setValue(produto.category);
             this.formControls['description'].setValue(produto.description);
-            this.formControls['price'].setValue(produto.price);
+            this.formControls['price'].setValue(price);
           })
         );
       })
@@ -62,7 +63,7 @@ export class ProductEditComponent implements OnInit {
           this.formControls['id'].value,
           this.formControls['name'].value,
           this.formControls['categoria'].value,
-          price.toString(),
+          price,
           this.formControls['description'].value
         )
         .subscribe({

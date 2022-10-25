@@ -52,19 +52,11 @@ export class ProdutoService {
     idProduto: number,
     name: string,
     category: string,
-    price: string,
+    price: number,
     description: string
   ) {
-    const formData = new FormData();
 
-    console.log(name, category, price, description);
-
-    formData.append('name', name);
-    formData.append('category', category);
-    formData.append('price', price);
-    formData.append('description', description);
-
-    return this.http.post(API + '/produtos/' + idProduto, formData);
+    return this.http.post(API + '/produtos/' + idProduto, { name, category, price, description });
   }
 
   excluirProduto(idProduto: number) {
