@@ -67,10 +67,10 @@ db.serialize(() => {
     console.log(user);
   });
 
-  db.each("SELECT * FROM product", (err, product) => {
-    console.log("product");
-    console.log(product);
-  });  
+  // db.each("SELECT * FROM product", (err, product) => {
+  //   console.log("product");
+  //   console.log(product);
+  // });  
  
 });
 

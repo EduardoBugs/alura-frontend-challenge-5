@@ -1,13 +1,14 @@
+import { NgxCurrencyModule } from 'ngx-currency';
+
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { CategoriaProdutoComponent } from './categoria-produto/categoria-produto.component';
+
+import { CardProdutoModule } from '../card-produto/card-produto.module';
 import { CategoriaComponent } from './categoria.component';
-import { NgxCurrencyModule } from 'ngx-currency';
 
 @NgModule({
     declarations: [
-        CategoriaComponent,
-        CategoriaProdutoComponent
+        CategoriaComponent
     ],
     imports: [
         CommonModule,
@@ -22,6 +23,7 @@ import { NgxCurrencyModule } from 'ngx-currency';
           thousands: '.',
           nullable: true,
         }),
+        CardProdutoModule
     ],
     exports: [CategoriaComponent]
 })

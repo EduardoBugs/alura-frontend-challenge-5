@@ -12,11 +12,10 @@ const defaultExtension = '.jpg';
 
 api.list = async (req, res) => {
   console.log('####################################');
-  const { page } = req.query;
   
   console.log(`Listing produtcs`);
   const products = await new ProductDao(req.db)
-      .listAll(page);
+      .listAll();
   
       res.json(products);
 }

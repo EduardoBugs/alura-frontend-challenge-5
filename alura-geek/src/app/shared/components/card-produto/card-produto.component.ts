@@ -1,13 +1,14 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { Produto } from 'src/app/core/produto/produto.interface';
 
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 @Component({
-  selector: 'app-categoria-produto',
-  templateUrl: './categoria-produto.component.html',
-  styleUrls: ['./categoria-produto.component.scss']
+  selector: 'app-card-produto',
+  templateUrl: './card-produto.component.html',
+  styleUrls: ['./card-produto.component.scss']
 })
-export class CategoriaProdutoComponent {
+export class CardProdutoComponent {
   @Input() produto!: Produto;
 
   constructor(private router: Router) { }

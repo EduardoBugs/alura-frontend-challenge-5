@@ -1,11 +1,11 @@
 <div class="categoria-content">
   <div class="categoria-header">
     <h2>{{ title }}</h2>
-    <a *ngIf="linkVerTudo" href="./produtos-home.html">Ver tudo<i>→</i></a>
+    <a *ngIf="linkVerTudo" href="javascript: void(0);" (click)="redirectAllProducts()">Ver tudo<i>→</i></a>
   </div>
   <ul class="categoria-produtos">
     <li *ngFor="let produto of produtos$ | async">
-      <app-categoria-produto [produto]="produto"></app-categoria-produto>
+      <app-card-produto [produto]="produto"></app-card-produto>
     </li>
   </ul>
 </div>

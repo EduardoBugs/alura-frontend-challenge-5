@@ -15,19 +15,12 @@ class ProductDao {
     this._db = db;
   }
 
-  listAll(page) {
-    const from = (page - 1) * maxRows;
-
-    let limitQuery = '';
-
-    if (page) limitQuery = `LIMIT ${from}, ${maxRows}`;
-
+  listAll() {
     return new Promise((resolve, reject) => {
         this._db.all(`
-            SELECT p.*,
-            FROM product AS p
-            ORDER BY p.product_name
-            ${limitQuery} ;
+            SELECT *
+            FROM product
+            ORDER BY product_name, product_create_date;
             `,
             (err, rows) => {
                 const products = rows.map(productConverter)

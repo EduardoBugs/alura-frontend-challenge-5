@@ -7,6 +7,7 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
+import { CardProdutoModule } from '../shared/components/card-produto/card-produto.module';
 import { CategoriaModule } from '../shared/components/categoria/categoria.module';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ProductFormComponent } from './product-form/product-form.component';
@@ -22,6 +23,7 @@ import { ProductsRoutingModule } from './products.routing.module';
     FontAwesomeModule,
     ToastrModule.forRoot(),
     CategoriaModule,
+    CardProdutoModule,
     NgxCurrencyModule.forRoot({
       align: 'left',
       allowNegative: true,

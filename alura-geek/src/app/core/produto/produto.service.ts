@@ -11,9 +11,8 @@ const API = environment.apiUrl;
 export class ProdutoService {
   constructor(private http: HttpClient) {}
 
-  listPaginated(page: number) {
-    const params = new HttpParams().append('page', page.toString());
-    return this.http.get<Produto[]>(API + '/produtos', { params });
+  list() {
+    return this.http.get<Produto[]>(API + '/produtos');
   }
 
   listByCategory(categoria: string) {
@@ -25,9 +24,15 @@ export class ProdutoService {
 
   findById(idProduto: number) {
     return this.http.get<Produto>(API + '/produtos/' + idProduto);
-  }  
+  }
 
-  addProduct(name: string, category: string, price: string, description: string, file: File) {
+  addProduct(
+    name: string,
+    category: string,
+    price: string,
+    description: string,
+    file: File
+  ) {
     const formData = new FormData();
 
     formData.append('name', name);

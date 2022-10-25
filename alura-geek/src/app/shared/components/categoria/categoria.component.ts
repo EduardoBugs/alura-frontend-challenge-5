@@ -1,8 +1,9 @@
-import { filter, map, Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { Produto } from 'src/app/core/produto/produto.interface';
 import { ProdutoService } from 'src/app/core/produto/produto.service';
 
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-categoria',
@@ -17,7 +18,7 @@ export class CategoriaComponent implements OnInit {
 
   produtos$: Observable<Produto[]> | null = null;
 
-  constructor(private produtoService: ProdutoService) {}
+  constructor(private produtoService: ProdutoService, private router: Router) {}
 
   ngOnInit(): void {
     if (this.nomeCategoria) {
@@ -27,5 +28,9 @@ export class CategoriaComponent implements OnInit {
           map((produtos) => produtos.filter((x) => x.id != this.excludeId))
         );
     }
+  }
+
+  redirectAllProducts() {
+    this.router.navigate(['products']);
   }
 }
